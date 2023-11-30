@@ -203,43 +203,86 @@ export default function ObjectArray() {
 
       <br />
 
-      <button 
+      <button
         onClick={() => {
-          const newData= data.filter((v,i)=>{
+          const newData = data.filter((v, i) => {
             return v.text !== 'b'
             //產生新的狀態 裡面的文字不可以有b 相當於刪除b
           })
           setData(newData)
+
+          // setData(data.filter((v))
         }}
-      >6.刪除文字為b的物件資料</button>
+      >
+        6.刪除文字為b的物件資料
+      </button>
 
       <br />
 
-      <button 
+      <button
         onClick={() => {
-          const newData= data.filter((v,i)=>{
+          const newData = data.filter((v, i) => {
             return v.id !== 4
             //產生新的狀態 裡面的ID不可以有4 相當於刪除4
           })
           setData(newData)
         }}
-      >7.刪除id為4的物件資料</button>
+      >
+        7.刪除id為4的物件資料
+      </button>
 
-        <br />
-
-      <button 
-        onClick={() => {
-
-        }}
-      >8.在id為2後面插入id為5與文字為bbb的物件</button>
-      
       <br />
-      
-      <button 
+
+      <button
         onClick={() => {
-        
+          //a. 尋找id=2的索引在哪
+          const foundIndex = data.findIndex((v, i) => {
+            return v.id === 2
+          })
+          //如果有找到 返回索引值  如果沒有 返回-1(因為陣列索引值從0開始 沒有-1)
+
+          //如果有找到 if foundIndex 不等於 -1 代表有找到
+          //也可以用if(foundIndex > -1){
+          if (foundIndex !== -1) {
+            //b. 建立要插入的物件值
+            const newObj = { id: 5, text: 'bbb' }
+
+            //c. 產生兩個字女陣列(分割陣列） 一個陣列是ID 1&2  另一個陣列是3&4
+            const aa = data.slice(0, foundIndex + 1)
+            const ab = data.slice(foundIndex + 1)
+
+            //與新物件合併子女陣列(產生新陣列)
+            const newData = [...aa, newObj, ...ab]
+
+            //設定回原本狀態中
+            setData(newData)
+          }
         }}
-      >9.取代id為3的文字為cccc</button>
+      >
+        8.在id為2後面插入id為5與文字為bbb的物件
+      </button>
+
+      <br />
+
+      <button
+        onClick={() => {
+          const newData = data.map((v, i) => {
+            if (v.id === 3) return { ...v, text: 'cccc' }
+            else return v
+          })
+          setData(newData)
+        }}
+      >
+        9.取代id為3的文字為cccc
+      </button>
+
+      <button
+        onClick={() => {
+          setData([])
+        }}
+      >
+        10.清空表格
+      </button>
     </>
   )
 }
