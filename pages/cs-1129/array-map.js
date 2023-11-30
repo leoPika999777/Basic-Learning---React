@@ -22,6 +22,8 @@ export default function Arraymap() {
 
   //3
   const ad = aa.map((v, i) => {
+    //Key 只有在周遭有 array 的情境中才有意義。
+    //return <li key={i.toString()}>{v}</li>
     return <li key={i}>{v}</li>
   })
   console.log(ad)
