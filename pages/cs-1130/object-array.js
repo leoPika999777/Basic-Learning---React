@@ -74,9 +74,11 @@ export default function ObjectArray() {
           //setData([{ id: 99, text: 'xxx' }, ...data])
         }}
       >
-        1. 列表最前面，新增一個物件值id為99與文字為xxx的物件
+        1.列表最前面，新增一個物件值id為99與文字為xxx的物件
       </button>
+
       <br />
+
       <button
         onClick={() => {
           const newObj = { id: 88, text: 'yyy' }
@@ -88,9 +90,11 @@ export default function ObjectArray() {
           setData(newData)
         }}
       >
-        2, 列表最後面，新增一個物件值id為88與文字為yyy的物件
+        2.列表最後面，新增一個物件值id為88與文字為yyy的物件
       </button>
+
       <br />
+
       <button
         onClick={() => {
           //先寫出要新增的物件值
@@ -105,10 +109,13 @@ export default function ObjectArray() {
           setData(newData)
         }}
       >
-        3-1.列表最前面，使用randomUUID方式新增一個文字為xxx的物件(id不能與其它資料重覆)
+        3-1.列表最前面，使用randomUUID方式新增一個文字為xxx的物件
+        <br />
+        (id不能與其它資料重覆)
       </button>
 
       <br />
+
       <button
         onClick={() => {
           // 3-2. 時間日期物件轉毫秒數值（整數）or use Date.now()
@@ -123,10 +130,13 @@ export default function ObjectArray() {
           // 3-3. 產生隨機字串/數字
         }}
       >
-        3-2.列表最前面，使用時間日期物件方式新增一個文字為xxx的物件(id不能與其它資料重覆)
+        3-2.列表最前面，使用時間日期物件方式新增一個文字為xxx的物件
+        <br />
+        (id不能與其它資料重覆)
       </button>
 
       <br />
+
       <button
         onClick={() => {
           // 3-4. 模仿資料庫ID遞增方式(只限於ID是數字)
@@ -142,7 +152,9 @@ export default function ObjectArray() {
           setData(newData)
         }}
       >
-        3-4.列表最前面，使用模仿資料庫ID遞增方式新增一個文字為xxx的物件(id不能與其它資料重覆)
+        3-4.列表最前面，使用模仿資料庫ID遞增方式新增一個文字為xxx的物件
+        <br />
+        (id不能與其它資料重覆)
       </button>
 
       <br />
@@ -161,20 +173,73 @@ export default function ObjectArray() {
           setData(newData)
         }}
       >
-        4. 列表最後面，新增一個文字為yyy的物件(id不能與其它資料重覆)
+        4.列表最後面，新增一個文字為yyy的物件
+        <br />
+        (id不能與其它資料重覆)
       </button>
+
       <br />
-      <button onClick={() => {}}>
-        尋找(過濾)只呈現所有文字中有包含a英文字母的資料
+
+      <button
+        onClick={() => {
+          // 1. 從目前的狀態拷貝出一個新的變數值(陣列/物件)
+          // 2. 在新的變數值(陣列/物件)上作處理
+
+          //filter 叫做過濾   是陣列的方法 會產生新的陣列 所以他要呼叫
+          //filter 跟map寫法一樣  ()=>{}  還有return
+          //filter 跟map不同 return 是測試條件 是二分法 裡面是布林值
+          const newData = data.filter((v, i) => {
+            // v.text.includes('a') 代表物件裡面的每一個文字 有沒有包含a字串
+            // 只會回傳有a字串的
+            return v.text.includes('a')
+          })
+
+          // 3. 設定回原本的狀態中
+          setData(newData)
+        }}
+      >
+        5.尋找(過濾)只呈現所有文字中有包含a英文字母的資料
       </button>
+
       <br />
-      <button onClick={() => {}}>刪除文字為b的物件資料</button>
+
+      <button 
+        onClick={() => {
+          const newData= data.filter((v,i)=>{
+            return v.text !== 'b'
+            //產生新的狀態 裡面的文字不可以有b 相當於刪除b
+          })
+          setData(newData)
+        }}
+      >6.刪除文字為b的物件資料</button>
+
       <br />
-      <button onClick={() => {}}>刪除id為4的物件資料</button>
+
+      <button 
+        onClick={() => {
+          const newData= data.filter((v,i)=>{
+            return v.id !== 4
+            //產生新的狀態 裡面的ID不可以有4 相當於刪除4
+          })
+          setData(newData)
+        }}
+      >7.刪除id為4的物件資料</button>
+
+        <br />
+
+      <button 
+        onClick={() => {
+
+        }}
+      >8.在id為2後面插入id為5與文字為bbb的物件</button>
+      
       <br />
-      <button onClick={() => {}}>在id為2後面插入id為5與文字為bbb的物件</button>
-      <br />
-      <button onClick={() => {}}>取代id為3的文字為cccc</button>
+      
+      <button 
+        onClick={() => {
+        
+        }}
+      >9.取代id為3的文字為cccc</button>
     </>
   )
 }
