@@ -3,6 +3,7 @@ import React from 'react'
 export default function Child(props) {
 
 
+
     // 子女元件，可以利用函式的傳入參數props取得父母元件傳來的資料
     //props 使屬性質 且一定是物件
     //父母與子女的關係  父母渲染子  子女可以接受到這個值
