@@ -1,3 +1,4 @@
+// https://zh-hans.react.dev/learn/updating-arrays-in-state#challenges
 import { useState } from 'react'
 
 const initialProducts = [
