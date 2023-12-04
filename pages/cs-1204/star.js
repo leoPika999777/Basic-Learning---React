@@ -3,7 +3,12 @@ import React, { useState } from 'react'
 import styles from '@/styles/star.module.css'
 
 export default function Star() {
+
+  // 點按時的評分，一開始是0代表沒有評分
   const [rating, setRating] = useState(0)
+
+  // 滑鼠游標hover的評分
+  const [hoverRating, setHoverRating] = useState(0)
   return (
     <>
       <h1>星星評分範例</h1>
@@ -21,6 +26,16 @@ export default function Star() {
               <button
                 key={i}
                 className={styles['star-btn']}
+
+                // 滑鼠移入星星區域時，設定hoverRating為目前的分數
+                onMouseEnter={() => {
+                  setHoverRating(score)
+                }}
+                // 滑鼠離開星星區域時，設定hoverRating為0
+                onMouseLeave={() => {
+                  setHoverRating(0)
+                }}
+
                 onClick={() => {
                    // 點按後設定分數
                   setRating(score)
@@ -28,9 +43,9 @@ export default function Star() {
               >
                 <span
                   //分數小於現在的評分  就亮起來
-                  // 判斷分數(score)如果小於等於目前的評分(rating)狀態，則套用亮起樣式
+                  // 判斷分數(score)如果小於等於目前的評分(rating)狀態，或小於等於目前的懸停評分，則套用亮起樣式
                   
-                  className={score <= rating ? styles['on'] : styles['off']}
+                  className={score <= rating || score <= hoverRating ? styles['on'] : styles['off']}
                 >
                   &#9733;
                 </span>
