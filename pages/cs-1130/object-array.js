@@ -147,12 +147,11 @@ export default function ObjectArray() {
           const newID = data.length > 0 ? Math.max(...ids) + 1 : 1
           const newObj = { id: newID, text: 'xxx' }
 
-          const newData = [newObj, ...data]
-
+          const newData = [...data, newobj]
           setData(newData)
         }}
       >
-        3-4.列表最前面，使用模仿資料庫ID遞增方式新增一個文字為xxx的物件
+        3-4.列表最後面，使用模仿資料庫ID遞增方式新增一個文字為xxx的物件
         <br />
         (id不能與其它資料重覆)
       </button>
