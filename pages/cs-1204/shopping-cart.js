@@ -25,7 +25,7 @@ export default function ShoppingCart() {
   //increment 增加產品的數量  用iD找
   const increment = (products, id) => {
     return products.map((v, i) => {
-      //符合id數量的 就+1
+      //符合id的 他的產品數量就+1
       if (v.id === id) return { ...v, count: v.count + 1 }
       else return v
     })

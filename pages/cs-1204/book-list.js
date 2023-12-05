@@ -18,9 +18,10 @@ function BookList() {
     return { ...v, fav: false }
   })
 
+  //宣告初始化的狀態
   const [books, setBooks] = useState(initState)
 
-  //純函式 - 單純改變陣列用
+  //純函式 - 單純改變陣列用(狀態)
   // const aa = [
   //   { isbn: 'xxx', fav: true },
   //   { isbn: 'yyy', fav: false },
@@ -29,7 +30,7 @@ function BookList() {
   //toggle開關  真變假 假變真
   const toggleFav = (array, isbn) => {
     return array.map((v,i)=>{
-      //如果裡面的isbn等於上面的isbn 
+      //如果裡面的isbn等於上面的isbn 傳入的布林值改成反向
       if(v.isbn===isbn) return {...v, fav: !v.fav}
       else return v
     })

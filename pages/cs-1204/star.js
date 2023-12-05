@@ -19,7 +19,7 @@ export default function Star() {
           .fill(1)
            
           .map((v, i) => {
-             // 每個星星的分數，剛好是索引值+1
+             // 每個星星的分數，剛好是索引值+1 
             const score = i + 1
 
             return (

@@ -15,7 +15,7 @@ export default function Star({ starCount = 5 }) {
     <>
       <h1>星星評分範例</h1>
       <div>
-        {/* 產生5個成員都是1的陣列，表達式語法 */}
+        {/* 產生starCount個成員都是1的陣列，表達式語法  這邊預設是5*/}
         {Array(starCount)
           .fill(1)
           .map((v, i) => {

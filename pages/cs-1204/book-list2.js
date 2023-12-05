@@ -45,11 +45,11 @@ function BookList() {
                     onClick={() => {
                       //fav如果是true 實心  false 空心
                       //在img加入點擊後 改變icon值
-                      const newData = book.map((v2, i2) => {
+                      const newBooks = books.map((v2, i2) => {
                         if (v.isbn === v2.isbn) return { ...v2, fav: !v2.fav }
-                        else return v
+                        else return v2
                       })
-                      setBooks(newData)
+                      setBooks(newBooks)
                     }}
                   />
                 </td>
