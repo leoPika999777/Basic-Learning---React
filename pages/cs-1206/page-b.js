@@ -1,10 +1,8 @@
-import { useContext } from 'react'
-import { ThemeContext } from '@/context/theme'
-
+import { useTheme } from '@/hooks/use-theme'
 import Link from 'next/link'
 
 export default function PageB() {
-  const { color } = useContext(ThemeContext)
+  const { color } = useTheme()
 
   return (
     <>
