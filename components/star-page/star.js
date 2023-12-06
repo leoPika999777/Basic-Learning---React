@@ -6,7 +6,7 @@ export default function Star({
   starCount = 5, // starCount預設值為5，如果沒有傳入props.starCount，就會使用預設值
   initRating = 0, //initRating 一開始的分數 預設為0
   onRatingChange = () => {}, // 當評分有改變時 要呼叫的函式
-  color='gold'
+  color = 'gold',
 }) {
   // 滑鼠點按時的評分，一開始是0代表沒有評分
   const [rating, setRating] = useState(initRating)
@@ -56,13 +56,17 @@ export default function Star({
               >
                 <span
                   // 判斷分數(score)如果小於等於目前的評分(rating)狀態，或小於等於目前的懸停評分，則套用亮起樣式
-                  className={
-                    score <= rating || score <= hoverRating
-                      ? styles['on']
-                      : styles['off']
-                  }
+                  // className={
+                  //   score <= rating || score <= hoverRating
+                  //     ? styles['on']
+                  //     : styles['off']
+                  // }
+                  //樣式的color
 
-                  
+                  style={{
+                    color:
+                      score <= rating || score <= hoverRating ? color : 'blue',
+                  }}
 
 
                 >

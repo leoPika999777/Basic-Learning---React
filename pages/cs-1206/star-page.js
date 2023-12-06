@@ -5,7 +5,8 @@ export default function StarPage() {
   const [value, setValue] = useState(3)
   return (
     <>
-      <Star initRating={value} onRatingChange={setValue} />
+      <Star initRating={value} onRatingChange={setValue}  color="#ff9900"  
+      />
       <hr />
       <hr />
       <button
