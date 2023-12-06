@@ -1,6 +1,7 @@
 import { useState } from 'react'
 // 範例資料
 import data from '@/data/books.json'
+//import BookItem from './book-item/index'
 import BookItem from './book-item'
 
 export default function BookList() {
