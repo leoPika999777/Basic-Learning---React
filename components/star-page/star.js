@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 // 導入`.module.css`檔案
 import styles from '@/styles/star.module.css'
 
@@ -6,13 +6,22 @@ export default function Star({
   starCount = 5, // starCount預設值為5，如果沒有傳入props.starCount，就會使用預設值
   initRating = 0, //initRating 一開始的分數 預設為0
   onRatingChange = () => {}, // 當評分有改變時 要呼叫的函式
+  color='gold'
 }) {
   // 滑鼠點按時的評分，一開始是0代表沒有評分
   const [rating, setRating] = useState(initRating)
 
+    // 綁定外部來的initRating值 只要有改變 就會觸發同步化
+    useEffect(() => {
+      setRating(initRating)
+    }, [initRating])
+
+
   // 滑鼠游標懸停(hover)評分，一開始是0代表沒有懸停
   // 懸停(hover)需要兩個事件配合：onMouseEnter + onMouseLeave
   const [hoverRating, setHoverRating] = useState(0)
+
+
 
   return (
     <>
@@ -52,6 +61,10 @@ export default function Star({
                       ? styles['on']
                       : styles['off']
                   }
+
+                  
+
+
                 >
                   &#9733;
                 </span>
