@@ -7,7 +7,7 @@ export default function Item() {
   return (
     <>
       <div className={color}>
-        <p className={color + '-highlight'}>
+        <p className={color + '-high'}>
           這是一個項目文字，目前佈景顏色是: {color}
         </p>
       </div>

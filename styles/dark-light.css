@@ -6,6 +6,10 @@
   .light-highlight {
     color: #fdb813;
   }
+  .light-high{
+    color: #fd1313;
+    background-color: lightgoldenrodyellow
+  }
   
   .dark {
     color: #bb86fc;
