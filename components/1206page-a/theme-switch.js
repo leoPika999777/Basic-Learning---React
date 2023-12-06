@@ -1,10 +1,12 @@
 import Switch from 'react-switch'
 import { IoMdSunny, IoMdMoon } from 'react-icons/io'
+import { useContext } from 'react'
+import { ThemeContext } from '@/context/theme'
 
-import { useTheme } from '@/hooks/use-theme'
+// import { useTheme } from '@/hooks/use-theme'
 
 export default function ThemeSwitch() {
-  const { toggleColor, color } = useTheme()
+  const { toggleColor, color } = useContext(ThemeContext)
 
   return (
     <Switch

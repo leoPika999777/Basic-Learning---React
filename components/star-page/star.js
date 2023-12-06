@@ -6,8 +6,8 @@ import styles from '@/styles/star.module.css'
 import { IoIosStarHalf } from 'react-icons/io'
 
 export default function Star({
-  starCount = 5, // starCount預設值為5，如果沒有傳入props.starCount，就會使用預設值
-  initRating = 0, //initRating 一開始的分數 預設為0
+  starCount = 5, //有幾個星星圖示 可以評分的最大值  starCount預設值為5，如果沒有傳入props.starCount，就會使用預設值
+  initRating = 0, //initRating 一開始的評分分數(我給的) 預設為0 他本身是負元間
   onRatingChange = () => {}, // 當評分有改變時 要呼叫的函式
   color = 'gold',
   icon = <IoIosStarHalf />,
@@ -15,7 +15,7 @@ export default function Star({
   // 滑鼠點按時的評分，一開始是0代表沒有評分
   const [rating, setRating] = useState(initRating)
 
-  // 綁定外部來的initRating值 只要有改變 就會觸發同步化
+  // 綁定外部來的initRating值 只要有改變 就會觸發同步化 setRating就會跟著變
   useEffect(() => {
     setRating(initRating)
   }, [initRating])

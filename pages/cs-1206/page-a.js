@@ -2,9 +2,9 @@
 // import { ThemeContext } from '@/context/theme'
 import { useTheme } from '@/hooks/use-theme'
 
-import List from '@/components/page-a/list'
+import List from '@/components/1206page-a/list'
 import Link from 'next/link'
-import ThemeSwitch from '@/components/page-a/theme-switch'
+import ThemeSwitch from '@/components/1206page-a/theme-switch'
 
 export default function PageA() {
   //const { color, toggleColor } = useContext(ThemeContext)
