@@ -15,11 +15,10 @@ export default function MyApp({ Component, pageProps }) {
     color === 'light' ? setColor('dark') : setColor('light')
 
   return (
-    // <ThemeProvider value={{ color:color , setColor:setColor }}>
-    //   {getLayout(<Component {...pageProps} />)}
-    // </ThemeProvider>
-    <ThemeContext.Provider value={{ color, toggleColor }}>
-      {getLayout(<Component {...pageProps} />)}
-    </ThemeContext.Provider>
+    <ThemeProvider value={{ color: color, setColor: setColor }}>
+      <ThemeContext.Provider value={{ color, toggleColor }}>
+        {getLayout(<Component {...pageProps} />)}
+      </ThemeContext.Provider>
+    </ThemeProvider>
   )
 }
