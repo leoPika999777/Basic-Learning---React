@@ -8,7 +8,7 @@ export default function Cart() {
   const [items, setItems] = useState([])
 
   const remove = (items, id) => {
-    const newItems = items.filter((v,i)=>{
+    const newItems = items.filter((v, i) => {
       return v.id !== id
     })
     setItems(newItems)
@@ -16,14 +16,16 @@ export default function Cart() {
 
   const increment = (items, id) => {
     const newItems = items.map((v, i) => {
-      if (v.id === id) return { ...v, qty: v.qty + 1 ,subtotal: v.price * (v.qty + 1) }
+      if (v.id === id)
+        return { ...v, qty: v.qty + 1, subtotal: v.price * (v.qty + 1) }
       else return v
     })
     setItems(newItems)
   }
   const decrement = (items, id) => {
     const newItems = items.map((v, i) => {
-      if (v.id === id) return { ...v, qty: v.qty - 1,subtotal: v.price * (v.qty - 1) }
+      if (v.id === id)
+        return { ...v, qty: v.qty - 1, subtotal: v.price * (v.qty - 1) }
       else return v
     })
 
@@ -36,15 +38,33 @@ export default function Cart() {
       return v.id === item.id
     })
 
-   if (index > -1) {
+    if (index > -1) {
       // 數量+1
       increment(items, item.id)
       return // 跳出函式，接下來的程式不執行
     }
 
-    const newItem = { ...item, qty: 1 , subtotal:item.price}
+    const newItem = { ...item, qty: 1, subtotal: item.price }
     setItems([...items, newItem])
   }
+
+  const calTotalItems = () => {
+    let total = 0
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].qty
+    }
+    return total
+  }
+  const calTotalPrice = () => {
+    let total = 0
+
+    for (let i = 0; i < items.length; i++) {
+      total += items[i].subtotal
+    }
+
+    return total
+  }
+
 
   return (
     <>
@@ -55,10 +75,17 @@ export default function Cart() {
         </div>
         <h3>購物車</h3>
         <div className={styles['cart']}>
-          <CartList items={items} increment={increment} decrement={decrement} remove={remove} />
+          <CartList
+            items={items}
+            increment={increment}
+            decrement={decrement}
+            remove={remove}
+          />
         </div>
         <hr />
-        <div>總數量: 123 / 總金額: 123000</div>
+        <div>
+          總數量: {calTotalItems()} / 總金額: {calTotalPrice()}
+        </div>
       </div>
     </>
   )
