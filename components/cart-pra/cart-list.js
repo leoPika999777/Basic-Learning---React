@@ -21,6 +21,10 @@ export default function CartList({ items, increment, decrement, remove }) {
                 <span>{v.qty}</span>
                 <button
                   onClick={() => {
+                    if(v.qty===1){
+                        remove(items, v.id)
+                        return
+                    }
                     decrement(items, v.id)
                   }}
                 >
