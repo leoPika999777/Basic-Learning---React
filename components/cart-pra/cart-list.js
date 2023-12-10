@@ -27,6 +27,15 @@ export default function CartList({ items, increment, decrement, remove }) {
                   -
                 </button>
               </div>
+              <div>
+                <button
+                  onClick={() => {
+                    remove(items, v.id)
+                  }}
+                >
+                  移除
+                </button>
+              </div>
             </li>
           )
         })}

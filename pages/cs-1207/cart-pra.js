@@ -8,7 +8,7 @@ export default function Cart() {
   const [items, setItems] = useState([])
 
   const remove = (items, id) => {
-    const newItems = items.filter((v, i) => {
+    const newItems = items.filter((v,i)=>{
       return v.id !== id
     })
     setItems(newItems)
@@ -55,7 +55,7 @@ export default function Cart() {
         </div>
         <h3>購物車</h3>
         <div className={styles['cart']}>
-          <CartList items={items} increment={increment} decrement={decrement} />
+          <CartList items={items} increment={increment} decrement={decrement} remove={remove} />
         </div>
         <hr />
         <div>總數量: 123 / 總金額: 123000</div>
