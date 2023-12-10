@@ -16,14 +16,14 @@ export default function Cart() {
 
   const increment = (items, id) => {
     const newItems = items.map((v, i) => {
-      if (v.id === id) return { ...v, qty: v.qty + 1 }
+      if (v.id === id) return { ...v, qty: v.qty + 1 ,subtotal: v.price * (v.qty + 1) }
       else return v
     })
     setItems(newItems)
   }
   const decrement = (items, id) => {
     const newItems = items.map((v, i) => {
-      if (v.id === id) return { ...v, qty: v.qty - 1 }
+      if (v.id === id) return { ...v, qty: v.qty - 1,subtotal: v.price * (v.qty - 1) }
       else return v
     })
 
@@ -42,7 +42,7 @@ export default function Cart() {
       return // 跳出函式，接下來的程式不執行
     }
 
-    const newItem = { ...item, qty: 1}
+    const newItem = { ...item, qty: 1 , subtotal:item.price}
     setItems([...items, newItem])
   }
 
