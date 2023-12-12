@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 export default function LoginForm() {
+  //1.宣告狀態=> 這邊用陣列
+  // 裡面的名稱要跟下面的name一樣
   const [user, setUser] = useState({
     username: '',
     password: '',
@@ -16,25 +18,27 @@ export default function LoginForm() {
   // 顯示密碼的勾選狀態
   const [show, setShow] = useState(false)
 
-  // 各欄位共用事件處理函式
+  //2. 各欄位"共用事件處理函式"
   //多欄位的事件更動
   //傳入事件e
   const handleFieldChange = (e) => {
     //觸發事件  有三個最重要
     console.log(e.target.type, e.target.name, e.target.value)
 
-    // [e.target.name]: e.target.value 指的是  計算得來的屬性名稱(computed property names)
+    //2-1  [e.target.name]: e.target.value 指的是  計算得來的屬性名稱(computed property names)
     const newUser = { ...user, [e.target.name]: e.target.value }
 
     setUser(newUser)
   }
 
-  //阻擋預設行為 也就是阻擋把帳號密碼放在網址上
+  //3. 阻擋預設行為 也就是阻擋把帳號密碼放在網址上
   const handleSubmit = (e) => {
     // 第一行通常先把預設行為擋掉 阻擋表單預設送出
     e.preventDefault()
     //到這一步  會變成是  這表單按登入會停住無法下一步
 
+
+    // 4. 建立一個新的錯誤訊息物件
     const newErrors = { username: '', password: '' }
     let hasErrors = false
 
@@ -82,9 +86,13 @@ export default function LoginForm() {
             onChange={handleFieldChange}
           />
         </label>
+
         <br />
+
         {errors.username}
+        
         <br />
+        
         <label>
           密碼:{' '}
           <input
@@ -126,7 +134,9 @@ export default function LoginForm() {
           />{' '}
           顯示密碼
         </label>
+        
         <br />
+        
         <button type="submit">登入</button>
       </form>
     </>
