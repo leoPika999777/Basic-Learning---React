@@ -64,7 +64,9 @@ export default function FileUpload() {
 
   return (
     <div>
-      <input type="file" name="file" onChange={changeHandler} />
+      <input type="file" name="file" onChange={changeHandler} 
+        //mutiple
+      />
       {selectedFile && (
         <div>
           預覽圖片: <img src={preview} alt="" />

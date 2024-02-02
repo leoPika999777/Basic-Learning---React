@@ -1,4 +1,5 @@
 // import '@/styles/globals.css'
+import '@/styles/1213prac.css'
 import '@/styles/product-table.css'
 import '@/styles/dark-light.css'
 // 3. 最外(上)元件階層包裹提供者元件，讓⽗⺟元件可以提供它:

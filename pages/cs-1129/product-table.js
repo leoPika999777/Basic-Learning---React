@@ -4,10 +4,9 @@ import Image from 'next/image'
 import { useMyState } from '@/hooks/use-mystates'
 
 export default function ProductTable() {
-    
-  const [total, setTotal]= useMyState(0)
-  // 如果＿app.js那邊回傳的是一個物件 ＝>  const {state:total, changeState:setTotal}= useMyState(0) 
-  
+  const [total, setTotal] = useMyState(0)
+  // 如果＿app.js那邊回傳的是一個物件 ＝>  const {state:total, changeState:setTotal}= useMyState(0)
+
   console.log(data)
 
   return (
@@ -28,13 +27,13 @@ export default function ProductTable() {
                 <td>{v.id}</td>
                 {/* <td><img src={'/pics/'+v.photos.split(',')[0]}  /></td> */}
                 <td>
-                  <img 
+                  <img
                     src={`/pics/${v.photos.split(',')[0]}`}
                     width={150}
                     height={100}
                     alt=""
                   />
-                </td> 
+                </td>
                 <td>{v.name}</td>
                 <td>{v.price}</td>
               </tr>
